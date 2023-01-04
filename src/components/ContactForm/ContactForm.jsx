@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from 'redux/selectors';
-import { addContact } from 'redux/operations';
-import { Form, Label, Input, Button } from './ContactForm.styled';
+import { selectContacts } from 'redux/contacts/selectors';
+import { addContact } from 'redux/contacts/operations';
+import { Form } from './ContactForm.styled';
+import { TextField, Button } from '@mui/material';
 
 export function ContactForm() {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
   const contacts = useSelector(selectContacts);
   const savedNamesList = contacts.map(contact => contact.name);
 
@@ -18,10 +19,10 @@ export function ContactForm() {
       return alert(`${name} is already in contacts`);
     }
 
-    dispatch(addContact({ name, phone }));
+    dispatch(addContact({ name, number }));
 
     setName('');
-    setPhone('');
+    setNumber('');
   };
 
   const handleChange = e => {
@@ -33,7 +34,7 @@ export function ContactForm() {
         break;
 
       case 'number':
-        setPhone(value);
+        setNumber(value);
         break;
 
       default:
@@ -43,33 +44,31 @@ export function ContactForm() {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Label>
-        Name
-        <Input
-          type="text"
-          name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-          autoComplete="off"
-          value={name}
-          onChange={handleChange}
-        />
-      </Label>
-      <Label>
-        Number
-        <Input
-          type="tel"
-          name="number"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-          autoComplete="off"
-          value={phone}
-          onChange={handleChange}
-        />
-      </Label>
-      <Button type="submit">Add contact</Button>
+      <TextField
+        label="Name"
+        variant="outlined"
+        size="small"
+        name="name"
+        type="text"
+        required
+        sx={{ mb: '15px' }}
+        value={name}
+        onChange={handleChange}
+      />
+      <TextField
+        label="Number"
+        variant="outlined"
+        size="small"
+        name="number"
+        type="tel"
+        required
+        sx={{ mb: '15px' }}
+        value={number}
+        onChange={handleChange}
+      />
+      <Button variant="contained" type="submit" sx={{ mb: 2 }}>
+        Add contact
+      </Button>
     </Form>
   );
 }

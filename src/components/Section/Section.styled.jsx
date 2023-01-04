@@ -3,6 +3,8 @@ import styled from '@emotion/styled';
 export const PageSection = styled.section`
   display: flex;
   flex-direction: column;
+  width: 320px;
+  padding: 0 15px;
 `;
 
 export const HeadTitle = styled.h1`
