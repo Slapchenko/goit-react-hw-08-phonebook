@@ -2,7 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/operations';
-import { Box, Avatar, Typography, Modal, Button } from '@mui/material';
+import { Box, Avatar, Typography, Modal } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { ContactForm } from 'components/ContactForm';
@@ -58,7 +58,6 @@ export const Contact = ({ name, number, id }) => {
         hideBackdrop
         open={open}
         onClose={handleClose}
-        onBackdropClick={handleClose}
         aria-labelledby="child-modal-title"
         aria-describedby="child-modal-description"
       >
