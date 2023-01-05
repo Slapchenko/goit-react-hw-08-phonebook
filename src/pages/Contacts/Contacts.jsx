@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'redux/contacts/operations';
 import { selectError, selectIsLoading } from 'redux/contacts/selectors';
 import { Section } from 'components/Section';
-import { ContactForm } from 'components/ContactForm';
+// import { ContactForm } from 'components/ContactForm';
 import { Filter } from 'components/Filter';
 import { Loader } from 'components/Loader';
 import { ContactList } from 'components/ContactList';
@@ -28,23 +28,20 @@ export default function Contactc() {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        // width: 320,
         margin: '0 auto',
       }}
     >
-      <Section headTitle="Phonebook">
+      {/* <Section headTitle="Phonebook">
         <ContactForm />
-      </Section>
+      </Section> */}
       <Section title="Contacts">
-                <Filter />
-                
-                    <Stack direction="row" spacing={2} sx={{ml: 'auto'}}>
-      <Button size="large" variant="text" startIcon={<AddBoxIcon />}>
-        Add
-      </Button>
+        <Filter />
 
-    </Stack>
-    
+        <Stack direction="row" spacing={2} sx={{ ml: 'auto' }}>
+          <Button size="large" variant="text" startIcon={<AddBoxIcon />}>
+            Add
+          </Button>
+        </Stack>
 
         <ContactList />
         {isLoading && !error && <Loader />}
