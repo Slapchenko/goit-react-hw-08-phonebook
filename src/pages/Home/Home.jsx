@@ -18,7 +18,7 @@ export default function Home() {
       <h1 style={styles.title}>
         PhoneBook welcome page{' '}
         <span role="img" aria-label="Greeting icon">
-          💁‍♀️:
+          💁‍♀️
         </span>
       </h1>
     </div>
