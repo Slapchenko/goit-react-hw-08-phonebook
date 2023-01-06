@@ -21,7 +21,7 @@ const style = {
   bgcolor: 'background.paper',
   border: '1px solid #808080',
   boxShadow: 24,
-  pt: 2,
+  pt: 6,
   px: 4,
   pb: 3,
 };
@@ -46,19 +46,6 @@ export const Contact = ({ name, number, id }) => {
       </Box>
       <Box sx={{ ml: 'auto' }}>
         <React.Fragment>
-          <EditIcon
-            aria-label="update"
-            type="button"
-            sx={{
-              mr: '6px',
-              color: '#808080',
-              '&:hover': {
-                color: '#1976d2',
-                scale: '120%',
-              },
-            }}
-            onClick={handleOpen}
-          />
           <Modal
             hideBackdrop
             open={open}
@@ -69,7 +56,9 @@ export const Contact = ({ name, number, id }) => {
             <Box sx={{ ...style, width: 300 }}>
               <CloseIcon
                 sx={{
-                  mb: '10px',
+                  position: 'absolute',
+                  top: '5%',
+                  left: '89%',
                   color: '#808080',
                   '&:hover': {
                     color: '#1976d2',
@@ -87,6 +76,19 @@ export const Contact = ({ name, number, id }) => {
           </Modal>
         </React.Fragment>
 
+        <EditIcon
+          aria-label="update"
+          type="button"
+          sx={{
+            mr: '6px',
+            color: '#808080',
+            '&:hover': {
+              color: '#1976d2',
+              scale: '120%',
+            },
+          }}
+          onClick={handleOpen}
+        />
         <DeleteIcon
           aria-label="delete"
           type="button"

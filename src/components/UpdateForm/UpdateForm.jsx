@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/contacts/selectors';
 import { updateContact } from 'redux/contacts/operations';
 import { Form } from './UpdateForm.styled';
-import { TextField, Button } from '@mui/material';
+import { TextField, Button, Box } from '@mui/material';
 
 export function UpdateForm({ currName, currNumber, id, modalClose }) {
   const dispatch = useDispatch();
@@ -64,9 +64,21 @@ export function UpdateForm({ currName, currNumber, id, modalClose }) {
         value={number}
         onChange={handleChange}
       />
-      <Button variant="contained" type="submit" sx={{ mb: 2 }}>
-        Update
-      </Button>
+      <Box
+        sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+      >
+        <Button variant="contained" type="submit" sx={{ mb: 2, width: '65%' }}>
+          Update
+        </Button>
+        <Button
+          variant="contained"
+          type="button"
+          sx={{ width: '65%' }}
+          onClick={modalClose}
+        >
+          Cansel
+        </Button>
+      </Box>
     </Form>
   );
 }

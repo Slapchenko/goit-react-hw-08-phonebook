@@ -8,15 +8,12 @@ export const UserMenu = () => {
   const { user } = useAuth();
 
   return (
-    <Box
-      sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}
-    >
-      <Typography sx={{ textAlign: 'end', fontSize: '10px' }}>
-        Welcome, {user.name}
-      </Typography>
+    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+      <Typography sx={{}}>Welcome, {user.name}!</Typography>
       <Button
         sx={{
-          textTransform: '  capitalize',
+          textTransform: 'capitalize',
+          ml: 1,
         }}
         variant="contained"
         onClick={() => dispatch(logOut())}
