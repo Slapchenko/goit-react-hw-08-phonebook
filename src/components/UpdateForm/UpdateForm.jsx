@@ -76,7 +76,7 @@ export function UpdateForm({ currName, currNumber, id, modalClose }) {
           sx={{ width: '65%' }}
           onClick={modalClose}
         >
-          Cansel
+          Сancel
         </Button>
       </Box>
     </Form>
