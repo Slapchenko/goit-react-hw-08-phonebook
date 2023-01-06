@@ -40,9 +40,9 @@ export const Contact = ({ name, number, id }) => {
   return (
     <>
       <Avatar sx={{ mr: '10px' }}>{name[0]}</Avatar>
-      <Box>
-        <Typography>{name}</Typography>
-        <Typography>{number}</Typography>
+      <Box sx={{ width: '176px' }}>
+        <Typography sx={{ wordWrap: 'break-word' }}>{name}</Typography>
+        <Typography sx={{ wordWrap: 'break-word' }}>{number}</Typography>
       </Box>
       <Box sx={{ ml: 'auto' }}>
         <React.Fragment>
@@ -75,33 +75,33 @@ export const Contact = ({ name, number, id }) => {
             </Box>
           </Modal>
         </React.Fragment>
-
-        <EditIcon
-          aria-label="update"
-          type="button"
-          sx={{
-            mr: '6px',
-            color: '#808080',
-            '&:hover': {
-              color: '#1976d2',
-              scale: '120%',
-            },
-          }}
-          onClick={handleOpen}
-        />
-        <DeleteIcon
-          aria-label="delete"
-          type="button"
-          sx={{
-            ml: 'auto',
-            color: '#808080',
-            '&:hover': {
-              color: '#1976d2',
-              scale: '120%',
-            },
-          }}
-          onClick={() => dispatch(deleteContact(id))}
-        />
+        <Box sx={{ display: 'flex', ml: '10px' }}>
+          <EditIcon
+            aria-label="update"
+            type="button"
+            sx={{
+              mr: '6px',
+              color: '#808080',
+              '&:hover': {
+                color: '#1976d2',
+                scale: '120%',
+              },
+            }}
+            onClick={handleOpen}
+          />
+          <DeleteIcon
+            aria-label="delete"
+            type="button"
+            sx={{
+              color: '#808080',
+              '&:hover': {
+                color: '#1976d2',
+                scale: '120%',
+              },
+            }}
+            onClick={() => dispatch(deleteContact(id))}
+          />
+        </Box>
       </Box>
     </>
   );
